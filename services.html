@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trisha's Autobiography - Services</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+    <style>
+        :root {
+            --primary-rose: #f472b6;
+            --primary-rose-dark: #db2777;
+            --accent-warm: #fef3c7;
+            --accent-peach: #ffe4e6;
+            --bg-cream: #faf8f5;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --border-soft: #f1e7e4;
+            --shadow-subtle: 0 10px 25px -5px rgba(225, 29, 72, 0.07), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 20px 30px -10px rgba(225, 29, 72, 0.15), 0 10px 15px -5px rgba(0, 0, 0, 0.05);
+            --radius-lg: 20px;
+            --radius-md: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            background: rgba(250, 248, 245, 0.92);
+            border-bottom: 1px solid rgba(226, 218, 214, 0.6);
+        }
+
+        .header {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-Left .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .header-Left .logo::before {
+            content: "✦";
+            color: var(--primary-rose-dark);
+            font-size: 1.1rem;
+        }
+
+        .header-Right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .header-Right a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.45rem 1rem;
+            border-radius: 9999px;
+            transition: all 0.25s ease;
+        }
+
+        .header-Right a:hover {
+            color: var(--text-dark);
+            background-color: rgba(244, 114, 182, 0.12);
+        }
+
+        .header-Right a.active {
+            color: var(--primary-rose-dark);
+            background-color: var(--accent-peach);
+            font-weight: 600;
+        }
+
+        /* Hero / Introduction Section */
+        main {
+            flex: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 4rem;
+            width: 100%;
+        }
+
+        .hero-banner {
+            text-align: center;
+            max-width: 780px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .hero-banner .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #fce7f3, #ffe4e6);
+            color: var(--primary-rose-dark);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(244, 114, 182, 0.25);
+        }
+
+        h1 {
+            font-size: 2.75rem;
+            color: #1e1b4b;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            color: var(--primary-rose-dark);
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+        }
+
+        .lead-text {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-soft);
+            box-shadow: var(--shadow-subtle);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(244, 114, 182, 0.4);
+        }
+
+        /* Picture Insertion Container */
+        .card-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #fff1f2 0%, #fdf2f8 50%, #fef3c7 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .card-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            display: block;
+        }
+
+        .service-card:hover .card-image-wrapper img {
+            transform: scale(1.04);
+        }
+
+        /* Fallback graphic shown if custom image isn't loaded */
+        .img-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+            color: #9d174d;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .img-placeholder svg {
+            width: 44px;
+            height: 44px;
+            stroke: var(--primary-rose-dark);
+            opacity: 0.85;
+        }
+
+        /* Card Content */
+        .card-body {
+            padding: 1.75rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-badge {
+            align-self: flex-start;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            background: #fdf2f8;
+            color: var(--primary-rose-dark);
+            border-radius: 9999px;
+            margin-bottom: 0.85rem;
+            border: 1px solid rgba(244, 114, 182, 0.2);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .card-description {
+            font-size: 0.95rem;
+            color: #475569;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+            flex: 1;
+        }
+
+        .card-features {
+            list-style: none;
+            border-top: 1px dashed var(--border-soft);
+            padding-top: 1rem;
+            margin-top: auto;
+        }
+
+        .card-features li {
+            font-size: 0.85rem;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .card-features li::before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        /* Quick Stat Highlight Section */
+        .skills-highlight-bar {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-soft);
+            padding: 1.75rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+            gap: 1.5rem;
+            box-shadow: var(--shadow-subtle);
+            text-align: center;
+        }
+
+        .stat-item {
+            flex: 1;
+            min-width: 160px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-rose-dark);
+            line-height: 1.1;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.25rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-soft);
+            background: #ffffff;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer {
+            max-width: 1100px;
+            margin: 0 auto;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .footer strong span {
+            color: var(--text-dark);
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .header-Right {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            h1 {
+                font-size: 2.1rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Navigation Header -->
+    <header>
+        <div class="header">
+            <div class="header-Left">
+                <a href="index.html" class="logo">Trisha's Autobiography</a>
+            </div>
+            <div class="header-Right">
+                <a class="active" href="services.html">Services</a>
+                <a href="resume.html">Resume</a>
+                <a href="about.html">About</a>
+                <a href="testimonials.html">Testimonials</a>
+                <a href="index.html">Home</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <section class="hero-banner">
+            <span class="badge">Professional Offerings</span>
+            <h1>Services & Solutions</h1>
+            <h2>Clinical Insight • High-Speed Transcription • Visual Design</h2>
+            <p class="lead-text" style="font-size:20px; color: rgb(25, 25, 27); font-family: Verdana, Geneva, Tahoma, sans-serif">
+                Leveraging 4th-year nursing clinical acumen, an 85+ WPM typing speed with 97% accuracy, and meticulous organization to provide reliable healthcare transcription, document structuring, and design services.
+            </p>
+        </section>
+
+        <!-- Services Cards Section -->
+        <section class="services-grid">
+            
+            <!-- Service Card 1 -->
+            <article class="service-card">
+                <div class="card-image-wrapper">
+                    <!-- Insert your own picture below (e.g., PHOTOS/medical-transcription.jpg) -->
+                    <img src="media/medical transcription.jpg" alt="Medical Transcription and Clinical Documentation" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="img-placeholder" style="display: none;">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        <span>Insert Picture: <code>PHOTOS/service1.jpg</code></span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <span class="card-badge">Healthcare & Documentation</span>
+                    <h3 class="card-title">Medical & Academic Transcription</h3>
+                    <p class="card-description">
+                        Fast and thorough transcription of medical dictations, lectures, clinical audio, and patient case notes with certified knowledge in medical terminology and high accuracy.
+                    </p>
+                    <ul class="card-features">
+                        <li>85–94 WPM typing rate & 97% accuracy</li>
+                        <li>Certified in Medical Transcription & Primary Care</li>
+                        <li>Trilingual: English, Filipino, & Cebuano</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Service Card 2 -->
+            <article class="service-card">
+                <div class="card-image-wrapper">
+                    <!-- Insert your own picture below (e.g., PHOTOS/health-education.jpg) -->
+                    <img src="media/health graphics.jpg" alt="Healthcare Communication & Infographics" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="img-placeholder" style="display: none;">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
+                        </svg>
+                        <span>Insert Picture: <code>PHOTOS/service2.jpg</code></span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <span class="card-badge">Graphic Design & Media</span>
+                    <h3 class="card-title">Health Graphics & Presentation Design</h3>
+                    <p class="card-description">
+                        Transforming complex healthcare concepts, patient education campaigns, and academic reports into clean, visually engaging Canva presentations, posters, and flyers.
+                    </p>
+                    <ul class="card-features">
+                        <li>50+ freelance Canva projects completed</li>
+                        <li>Clear visual hierarchy, typography & color harmony</li>
+                        <li>Tailored for hospital, community, and social channels</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Service Card 3 -->
+            <article class="service-card">
+                <div class="card-image-wrapper">
+                    <!-- Insert your own picture below (e.g., PHOTOS/administrative-support.jpg) -->
+                    <img src="media/data entry.jpg" alt="Data Entry and Organizational Support" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="img-placeholder" style="display: none;">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                        </svg>
+                        <span>Insert Picture: <code>PHOTOS/service3.jpg</code></span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <span class="card-badge">Organization & Productivity</span>
+                    <h3 class="card-title">Document Organization & Data Entry</h3>
+                    <p class="card-description">
+                        Systematic management of spreadsheets, research logs, nursing care records, and digital files with strict formatting standards and rapid turnaround.
+                    </p>
+                    <ul class="card-features">
+                        <li>Proficiency in Google Workspace & MS Office</li>
+                        <li>High attention to alignment, proofreading & formatting</li>
+                        <li>Effective time management & prompt client coordination</li>
+                    </ul>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Key Qualifications Highlight Banner -->
+        <section class="skills-highlight-bar">
+            <div class="stat-item">
+                <div class="stat-number">4th Year</div>
+                <div class="stat-label">Nursing Acumen</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">85–94</div>
+                <div class="stat-label">Words Per Minute</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">97%</div>
+                <div class="stat-label">Typing Accuracy</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Design Projects</div>
+            </div>
+            <button type="button" 
+                onclick="alert('Nice! You found Chiikawa!')" 
+                style="background: none; border: none; padding: 0; cursor: pointer; outline: none; display: inline-block;">
+                <img src="media/chiikawa.png" alt="what's this button do?" width="100" style="display: block; transition: transform 0.2s ease;  float: right;">
+            </button>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer">
+            © Copyright <strong><span>Trisha's Autobiography</span></strong>. All Rights Reserved
+        </div>
+    </footer>
+</body>
+</html>

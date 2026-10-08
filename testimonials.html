@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trisha's Autobiography - Testimonials</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+    <style>
+        :root {
+            --primary-rose: #f472b6;
+            --primary-rose-dark: #db2777;
+            --accent-warm: #fef3c7;
+            --accent-peach: #ffe4e6;
+            --bg-cream: #faf8f5;
+            --card-bg: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --border-soft: #f1e7e4;
+            --shadow-subtle: 0 10px 25px -5px rgba(225, 29, 72, 0.07), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+            --shadow-hover: 0 20px 30px -10px rgba(225, 29, 72, 0.15), 0 10px 15px -5px rgba(0, 0, 0, 0.05);
+            --radius-lg: 20px;
+            --radius-md: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+            background: rgba(250, 248, 245, 0.92);
+            border-bottom: 1px solid rgba(226, 218, 214, 0.6);
+        }
+
+        .header {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-Left .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .header-Left .logo::before {
+            content: "✦";
+            color: var(--primary-rose-dark);
+            font-size: 1.1rem;
+        }
+
+        .header-Right {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .header-Right a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.45rem 1rem;
+            border-radius: 9999px;
+            transition: all 0.25s ease;
+        }
+
+        .header-Right a:hover {
+            color: var(--text-dark);
+            background-color: rgba(244, 114, 182, 0.12);
+        }
+
+        .header-Right a.active {
+            color: var(--primary-rose-dark);
+            background-color: var(--accent-peach);
+            font-weight: 600;
+        }
+
+        /* Main Content Layout */
+        main {
+            flex: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 4rem;
+            width: 100%;
+        }
+
+        .hero-banner {
+            text-align: center;
+            max-width: 780px;
+            margin: 0 auto 3.5rem;
+        }
+
+        .hero-banner .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #fce7f3, #ffe4e6);
+            color: var(--primary-rose-dark);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            margin-bottom: 1.25rem;
+            border: 1px solid rgba(244, 114, 182, 0.25);
+        }
+
+        h1 {
+            font-size: 2.75rem;
+            color: #1e1b4b;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            color: var(--primary-rose-dark);
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+        }
+
+        .lead-text {
+            font-size: 1.1rem;
+            color: rgb(25, 25, 27);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            line-height: 1.7;
+        }
+
+        /* Testimonials Stack */
+        .testimonials-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-soft);
+            box-shadow: var(--shadow-subtle);
+            padding: 2.25rem;
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 2.25rem;
+            align-items: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(244, 114, 182, 0.4);
+        }
+
+        /* Moderately Large Image Space */
+        .testifier-photo-wrapper {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: linear-gradient(135deg, #fff1f2 0%, #fdf2f8 50%, #fef3c7 100%);
+            border: 2px solid var(--accent-peach);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .testifier-photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .testimonial-card:hover .testifier-photo-wrapper img {
+            transform: scale(1.03);
+        }
+
+        .photo-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+            color: #9d174d;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .photo-placeholder svg {
+            width: 44px;
+            height: 44px;
+            stroke: var(--primary-rose-dark);
+            opacity: 0.85;
+        }
+
+        /* Testimonial Text & Info */
+        .testimonial-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .quote-icon {
+            font-size: 2.8rem;
+            line-height: 1;
+            color: #fbcfe8;
+            font-family: Georgia, serif;
+            margin-bottom: -0.5rem;
+            user-select: none;
+        }
+
+        .testifier-quote {
+            font-size: 1rem;
+            color: #334155;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            line-height: 1.75;
+            margin-bottom: 1.25rem;
+            white-space: pre-line;
+        }
+
+        .testifier-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px dashed var(--border-soft);
+            padding-top: 0.85rem;
+            margin-top: auto;
+        }
+
+        .testifier-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .testifier-tag {
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            background: #fff1f2;
+            color: var(--primary-rose-dark);
+            border-radius: 9999px;
+            border: 1px solid rgba(244, 114, 182, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-soft);
+            background: #ffffff;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer {
+            max-width: 1100px;
+            margin: 0 auto;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .footer strong span {
+            color: var(--text-dark);
+        }
+
+        @media (max-width: 820px) {
+            .testimonial-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .testifier-photo-wrapper {
+                max-width: 280px;
+                height: 220px;
+                margin: 0 auto;
+            }
+            .quote-icon {
+                display: none;
+            }
+            .testifier-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .header-Right {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            h1 {
+                font-size: 2.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Navigation Header -->
+    <header>
+        <div class="header">
+            <div class="header-Left">
+                <a href="index.html" class="logo">Trisha's Autobiography</a>
+            </div>
+            <div class="header-Right">
+                <a href="services.html">Services</a>
+                <a href="resume.html">Resume</a>
+                <a href="about.html">About</a>
+                <a class="active" href="testimonials.html">Testimonials</a>
+                <a href="index.html">Home</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <section class="hero-banner">
+            <span class="badge">Words from Friends & Peers</span>
+            <h1>Testimonials</h1>
+            <h2>Heartfelt reflections, shared memories, and honest thoughts</h2>
+            <p class="lead-text" style="font-size:20px; color: rgb(25, 25, 27); font-family: Verdana, Geneva, Tahoma, sans-serif">
+                Here are genuine perspectives from the people who know me best—highlighting our adventures, quiet dependability, and the moments that matter most.
+            </p>
+        </section>
+
+        <!-- Testimonials List Section -->
+        <section class="testimonials-container">
+            
+            <!-- Testimony 1: Kurt -->
+            <article class="testimonial-card">
+                <div class="testifier-photo-wrapper">
+                    <!-- Insert picture for Kurt below (e.g., PHOTOS/kurt.jpg) -->
+                    <img src="media/me and kurt.jpg" alt="Kurt" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="photo-placeholder" style="display: none;">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        <span>Insert Picture:<br><code>PHOTOS/kurt.jpg</code></span>
+                    </div>
+                </div>
+
+                <div class="testimonial-content">
+                    <div class="quote-icon">“</div>
+                    <p class="testifier-quote">
+<i>Having Trish in my corner for the last eight years has made navigating life a whole lot easier and definitely much funnier. She's the kind of person who you splurge and go cafe-hopping with, but also give you honest, grounded advice whenever you actually need it. You rarely find someone who balances being completely dependable with being so easy to talk to, but that's just who she is.</i>
+                    </p>
+                    <div class="testifier-meta">
+                        <span class="testifier-name">— Kurt</span>
+                        <span class="testifier-tag">Friend of 8 Years</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Testimony 2: Pao -->
+            <article class="testimonial-card">
+                <div class="testifier-photo-wrapper">
+                    <img src="media/me and pao.jpg" alt="Pao" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="photo-placeholder" style="display: none;">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        <span>Insert Picture:<br><code>media/me and pao.jpg</code></span>
+                    </div>
+                </div>
+
+                <div class="testimonial-content">
+                    <div class="quote-icon">“</div>
+                    <p class="testifier-quote">
+<i>As ive known Trisha Calva for the past few years, I can say that she is one of the most outgoing, smart, and trustworthy people I know. She has an air about her that lets you open up and feel relaxed. Talking to her makes it feel as though time flies by. I can tell her my deepest secrets and feel assured that she could keep them. The trust I place in her is due to how I see her as a person. She dedicates herself to whatever she does and makes it look effortless. She is definitely one of the most admirable people I know.</i>
+                    </p>
+                    <div class="testifier-meta">
+                        <span class="testifier-name">— Pao</span>
+                        <span class="testifier-tag">Peer & Confidant</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Testimony 3: Lara -->
+            <article class="testimonial-card">
+                <div class="testifier-photo-wrapper">
+                    <!-- Insert picture for Lara below (e.g., PHOTOS/lara.jpg) -->
+                    <img src="media/me and lara.jpg" alt="Lara" 
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="photo-placeholder" style="display: none;">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                        <span>Insert Picture:<br><code>media/me and lara.jpg</code></span>
+                    </div>
+                </div>
+
+                <div class="testimonial-content">
+                    <div class="quote-icon">“</div>
+                    <p class="testifier-quote">
+<i>I feel like kuannn, naa kay unique energy. Very stable? Like dili boring. But grounded. 
+
+HMMMMMM
+
+Dependable and intelligent, pero not in a way na murag maka defensive sa tao. Because not in your face imo capability? Rather murag inviting siya. Kanang murag ga guide ka rather than push HAHAHAHAH
+
+AM I MAKING SENSE
+
+Aside from that kay sweet sad ka!!!!! And approachable!!! I feel like even if naay differences in interests kay nice kay ka to talk withhhhhhhhhhhhhh
+
+AHHHH
+OMG HIMUON BANI NAKOG PROPER PARAGRAPH
+
+tldr??? HAHAHHAHA
+
+Sweet, Smart, Quietly dependable, LOVE OF MY LIFE, COOL KID </i>
+                    </p>
+                    <div class="testifier-meta">
+                        <span class="testifier-name">— Lara</span>
+                        <span class="testifier-tag">Close Friend</span>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer">
+            © Copyright <strong><span>Trisha's Autobiography</span></strong>. All Rights Reserved
+        </div>
+    </footer>
+</body>
+</html>
